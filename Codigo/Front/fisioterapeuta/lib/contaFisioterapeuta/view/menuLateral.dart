@@ -1,8 +1,9 @@
+import 'package:FisioApp/contaFisioterapeuta/controller/auxiliares_Controller.dart';
 import 'package:flutter/material.dart';
 
 class MenuLateral extends StatelessWidget {
-  final void Function(int) mudarPagina;
-  MenuLateral(this.mudarPagina);
+  final void Function(int) pegarIndice;
+  MenuLateral(this.pegarIndice);
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -45,7 +46,12 @@ class MenuLateral extends StatelessWidget {
             title: Text(
               'Fichas',
             ),
-            onTap: () => {},
+            onTap: () {
+              /*Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Fichas()),
+              );*/
+            },
           ),
           ListTile(
             leading: Icon(
@@ -63,7 +69,11 @@ class MenuLateral extends StatelessWidget {
             title: Text(
               'Auxiliares',
             ),
-            onTap: () => {},
+            onTap: () {
+              pegarIndice(6);
+              //Navigator.pop(context);
+              //Navigator.pop(context);
+            },
           ),
           ListTile(
             leading: Icon(
@@ -72,17 +82,19 @@ class MenuLateral extends StatelessWidget {
             title: Text(
               'Configurações',
             ),
-            onTap: () => {},
+            onTap: () {},
           ),
           ListTile(
-            leading: Icon(
-              Icons.exit_to_app,
-            ),
-            title: Text(
-              'Sair',
-            ),
-            onTap: () => mudarPagina(0),
-          ),
+              leading: Icon(
+                Icons.exit_to_app,
+              ),
+              title: Text(
+                'Sair',
+              ),
+              onTap: () {
+                pegarIndice(8);
+                //pegarIndice(9);
+              }),
         ],
       ),
     );

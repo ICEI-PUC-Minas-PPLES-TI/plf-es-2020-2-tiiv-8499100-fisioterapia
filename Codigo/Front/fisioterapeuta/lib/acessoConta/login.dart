@@ -1,12 +1,13 @@
+import 'package:FisioApp/contaFisioterapeuta/controller/dashboard.dart';
 import 'package:flutter/material.dart';
+import 'package:FisioApp/acessoConta/cadastro.dart';
 
-class Login extends StatelessWidget {
-  final void Function(int) mudarPagina;
+class Login extends StatefulWidget {
+  @override
+  _LoginState createState() => _LoginState();
+}
 
-  Login(
-    this.mudarPagina,
-  );
-
+class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -108,7 +109,14 @@ class Login extends StatelessWidget {
                             color: Colors.teal[600],
                           ),
                         ),
-                        onPressed: () => mudarPagina(2),
+                        //onPressed: () => mudarPagina(2),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DashBoard()),
+                          );
+                        },
                       ),
                       SizedBox(
                         height: 20,
@@ -135,8 +143,15 @@ class Login extends StatelessWidget {
                             color: Colors.teal[600],
                           ),
                         ),
-                        onPressed: () => mudarPagina(1),
-                      )
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Cadastro(),
+                            ),
+                          );
+                        },
+                      ),
                     ],
                   ),
                 ],
