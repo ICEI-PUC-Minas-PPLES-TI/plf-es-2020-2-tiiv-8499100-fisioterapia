@@ -13,6 +13,7 @@ using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using Fisioterapia.Models.Entidades;
 using Microsoft.AspNetCore.Http;
+using System.Threading.Tasks;
 
 namespace Fisioterapia.App.Controllers {
 
@@ -27,15 +28,16 @@ namespace Fisioterapia.App.Controllers {
             _mapper = mapper;
            
         }
-        [AllowAnonymous]
+       
         [HttpPost("login")]
-        public ActionResult<LoginResponse> Login(LoginModel model) 
+        public ActionResult<LoginResponse> Login([FromBody] LoginModel model) 
         {
             var response = _usuarioServices.login(model, ipAcesso());
             setTokenCookie(response.RecarregarToken);
-            return Ok(response);
+            return  Ok(response);
             
         }
+
         [HttpPost("register")]
         public IActionResult Register(RegisterModel model) 
         {
@@ -61,10 +63,10 @@ namespace Fisioterapia.App.Controllers {
         }
 
         [HttpPut("deactivate")]
-        public IActionResult Deactivate(int id) 
-        {
+        public IActionResult Deactivate(int id) {
             _usuarioServices.Deactivate(id);
-            return Ok(new {message = "Usuário desativado com sucesso!" });
+            return Ok(new { message = "Usuário desativado com sucesso!" });
         }
+
     }
 }

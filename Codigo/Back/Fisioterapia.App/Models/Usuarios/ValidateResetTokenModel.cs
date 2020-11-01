@@ -8,5 +8,6 @@ namespace Fisioterapia.App.Models.Usuarios {
     public class ValidateResetTokenModel {
         [Required]
         public string Token { get; set; }
+
     }
 }

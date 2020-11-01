@@ -12,6 +12,7 @@ namespace Fisioterapia.App.Helpers {
         public AppException(string message, params object[] args)
             : base(String.Format(CultureInfo.CurrentCulture, message, args)) {
 
+
         }
     }
 }

@@ -27,20 +27,20 @@ namespace Fisioterapia.App.Services
         }
         public void Cadastro(CadastrarAtletaModel model, string origem)
         {
-            if (_context.Atleta.Any(x => x.Email == model.Email))
+            if (_context.Atletas.Any(x => x.Email == model.Email))
                 throw new AppException($"Atleta '{ model.Nome }' já está cadastrado!");
 
             var atleta = _mapper.Map<Atleta>(model);
-            _context.Atleta.Add(atleta);
+            _context.Atletas.Add(atleta);
             _context.SaveChanges();
         }
 
         public void Update(UpdateAtletaModel model, string origem)
         {
-            if (_context.Atleta.Any(x => x.Email == model.Email))
+            if (_context.Atletas.Any(x => x.Email == model.Email))
             {
                 var atleta = _mapper.Map<Atleta>(model);
-                _context.Atleta.Update(atleta);
+                _context.Atletas.Update(atleta);
                 _context.SaveChanges();
             }
             else

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Fisioterapia.Models.Entidades;
 using Fisioterapia.App.Models.Usuarios;
-using Fisioterapia.App.Models.Atleta;
+using Fisioterapia.App.Models.auxiliar;
 
 namespace Fisioterapia.App.Helpers {
     public class AutoMapperProfile : Profile {
@@ -17,8 +17,15 @@ namespace Fisioterapia.App.Helpers {
                     if(x.DestinationMember.Name == "Role" && src.Role == null) return false;
                     return true;
                 }));
-            CreateMap<CadastrarAtletaModel, Atleta>();
-            CreateMap<UpdateAtletaModel, Atleta>();
+
+            CreateMap<Auxiliar,ModelAuxiliar >();
+            CreateMap<Auxiliar, ModelAuxiliarResponse>();
+            CreateMap<ModelAuxiliar, Auxiliar>();
+            CreateMap<ModelAuxiliar, Auxiliar>();
+            CreateMap<UpdateAuxiliar, Auxiliar>();
+
+         
+
         }
     }
 }

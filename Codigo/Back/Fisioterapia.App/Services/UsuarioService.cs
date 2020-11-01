@@ -14,6 +14,7 @@ using System.Text;
 using BC = BCrypt.Net.BCrypt;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using Microsoft.EntityFrameworkCore;
 
 namespace Fisioterapia.App.Services {
     public class UsuarioService : IUsuarioServices {
@@ -60,6 +61,7 @@ namespace Fisioterapia.App.Services {
             return _mapper.Map<LoginResponse>(usuario);
         }
 
+
         public LoginResponse login(LoginModel model, string ipAcesso) {
             var usuario = _context.Usuarios.SingleOrDefault(x => x.Email == model.Email);
             if (usuario == null || !usuario.IsVerificado || BC.Verify(BC.HashPassword(model.Senha), usuario.SenhaHash))
@@ -87,7 +89,7 @@ namespace Fisioterapia.App.Services {
             //falta o  envio  de email
             
         }
-
+      
         public LoginResponse RefreshToken(string token, string ipAcesso) {
             throw new NotImplementedException();
         }
@@ -151,19 +153,6 @@ namespace Fisioterapia.App.Services {
             user.VerificacaoToken = null;
             _context.Usuarios.Update(user);
             _context.SaveChanges();
-        }
-
-        public void Deactive(int id)
-        {
-            var user = getUsuario(id);
-
-            if (user != null) {
-                user.Active = false;
-                _context.Usuarios.Update(user);
-                _context.SaveChanges();
-            }
-            else
-                throw new ApplicationException("Usuário não encontrado!");
         }
 
         private string generateJwtToken(Usuarios usuarios) 
@@ -239,7 +228,17 @@ namespace Fisioterapia.App.Services {
                 );
         }
 
+      
 
+        public void Deactivate(int id) {
+            var user = getUsuario(id);
 
+            if (user != null) {
+                user.Active = false;
+                _context.Usuarios.Update(user);
+                _context.SaveChanges();
+            } else
+                throw new ApplicationException("Usuário não encontrado!");
+        }
     }
 }

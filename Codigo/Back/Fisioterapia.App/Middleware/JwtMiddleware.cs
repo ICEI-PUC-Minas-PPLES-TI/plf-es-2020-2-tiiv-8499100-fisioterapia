@@ -27,6 +27,7 @@ namespace Fisioterapia.App.Middleware {
             }
             await _next(context);
         }
+
         private async Task attachAccountToContext(HttpContext context, DataContext dataContext, string token) 
         {
             try {

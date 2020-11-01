@@ -5,6 +5,7 @@ using Fisioterapia.Models.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Fisioterapia.App.Services {
     public interface IUsuarioServices {
@@ -24,5 +25,5 @@ namespace Fisioterapia.App.Services {
         void Deactivate(int id);
 
     }
-    
+
 }

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Fisioterapia.App.Models.Usuarios {
     public class UpdateModel {
 
+
         private string _senha;
         private string _confirmarsenha;
         private string _role;

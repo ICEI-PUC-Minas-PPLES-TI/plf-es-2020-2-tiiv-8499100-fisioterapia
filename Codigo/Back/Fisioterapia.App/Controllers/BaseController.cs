@@ -11,5 +11,6 @@ namespace Fisioterapia.App.Controllers {
     public class BaseController : ControllerBase {
         // retorna a conta autenticada atual (nulo se não estiver conectado)
         public Usuarios Usuarios => (Usuarios)HttpContext.Items["Usuarios"];
+
     }
 }

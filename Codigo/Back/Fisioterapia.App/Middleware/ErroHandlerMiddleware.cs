@@ -39,6 +39,7 @@ namespace Fisioterapia.App.Middleware {
                 var result = JsonSerializer.Serialize(new { message = erro?.Message });
                 await respnse.WriteAsync(result);
             }
+
         }
     }
 }

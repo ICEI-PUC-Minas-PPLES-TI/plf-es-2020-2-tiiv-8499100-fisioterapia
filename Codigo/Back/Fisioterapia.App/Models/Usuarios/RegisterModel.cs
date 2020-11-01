@@ -13,6 +13,7 @@ namespace Fisioterapia.App.Models.Usuarios {
         [MinLength(6)]
         public string Senha { get; set; }
         [Required]
+
         [Compare("Senha")]
         public string ConfirmaSenha { get; set; }
         [Range(typeof(bool),"true","true")]

@@ -17,6 +17,7 @@ namespace Fisioterapia.App.Services {
             _appSettings = appSettings.Value;
         }
 
+
         public void Send(string to, string subject, string html, string from = null) {
             // create message
             var email = new MimeMessage();

@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Fisioterapia.App.Models.Usuarios {
     public class LoginResponse {
+
         public int Id { get; set; }
         public string Titulo { get; set; }
         public string Nome { get; set; }

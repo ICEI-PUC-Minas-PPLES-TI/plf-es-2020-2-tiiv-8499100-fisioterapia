@@ -7,5 +7,6 @@ namespace Fisioterapia.Models.Entidades {
         Admin,
         User,
         Auxi
+
     }
 }

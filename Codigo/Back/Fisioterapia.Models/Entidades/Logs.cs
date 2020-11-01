@@ -7,5 +7,8 @@ namespace Fisioterapia.Models.Entidades {
         public int Id { get; set; }
         public Usuarios IdUsuario { get; set; }
 
+        public string Index { get; set; }
+
+
     }
 }

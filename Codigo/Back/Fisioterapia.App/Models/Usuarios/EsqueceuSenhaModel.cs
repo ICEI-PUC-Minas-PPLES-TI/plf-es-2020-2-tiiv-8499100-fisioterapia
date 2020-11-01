@@ -9,5 +9,6 @@ namespace Fisioterapia.App.Models.Usuarios {
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+
     }
 }

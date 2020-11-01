@@ -8,5 +8,6 @@ namespace Fisioterapia.App.Models.Usuarios {
     public class VerificarEmailModel {
         [Required]
         public string Token { get; set; }
+
     }
 }

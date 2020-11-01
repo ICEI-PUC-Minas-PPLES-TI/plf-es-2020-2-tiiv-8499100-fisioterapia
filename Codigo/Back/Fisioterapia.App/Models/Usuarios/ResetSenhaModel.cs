@@ -14,5 +14,6 @@ namespace Fisioterapia.App.Models.Usuarios {
         [Required]
         [Compare("Senha")]
         public string ConfirmarSenha { get; set; }
+
     }
 }

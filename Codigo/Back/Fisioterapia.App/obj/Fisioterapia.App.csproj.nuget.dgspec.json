@@ -1,38 +1,38 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lukas\\OneDrive\\Área de Trabalho\\PUC MINAS\\4°-Periodo\\TIS - IV\\plf-es-2020-2-tiiv-8499100-fisioterapia\\Codigo\\Back\\Fisioterapia.App\\Fisioterapia.App.csproj": {}
+    "D:\\Desenvolvimento\\Projetos Pessoal\\.NET Core\\Fisioterapia\\Fisioterapia.App\\Fisioterapia.App.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lukas\\OneDrive\\Área de Trabalho\\PUC MINAS\\4°-Periodo\\TIS - IV\\plf-es-2020-2-tiiv-8499100-fisioterapia\\Codigo\\Back\\Fisioterapia.App\\Fisioterapia.App.csproj": {
+    "D:\\Desenvolvimento\\Projetos Pessoal\\.NET Core\\Fisioterapia\\Fisioterapia.App\\Fisioterapia.App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lukas\\OneDrive\\Área de Trabalho\\PUC MINAS\\4°-Periodo\\TIS - IV\\plf-es-2020-2-tiiv-8499100-fisioterapia\\Codigo\\Back\\Fisioterapia.App\\Fisioterapia.App.csproj",
+        "projectUniqueName": "D:\\Desenvolvimento\\Projetos Pessoal\\.NET Core\\Fisioterapia\\Fisioterapia.App\\Fisioterapia.App.csproj",
         "projectName": "Fisioterapia.App",
-        "projectPath": "C:\\Users\\lukas\\OneDrive\\Área de Trabalho\\PUC MINAS\\4°-Periodo\\TIS - IV\\plf-es-2020-2-tiiv-8499100-fisioterapia\\Codigo\\Back\\Fisioterapia.App\\Fisioterapia.App.csproj",
-        "packagesPath": "C:\\Users\\lukas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lukas\\OneDrive\\Área de Trabalho\\PUC MINAS\\4°-Periodo\\TIS - IV\\plf-es-2020-2-tiiv-8499100-fisioterapia\\Codigo\\Back\\Fisioterapia.App\\obj\\",
+        "projectPath": "D:\\Desenvolvimento\\Projetos Pessoal\\.NET Core\\Fisioterapia\\Fisioterapia.App\\Fisioterapia.App.csproj",
+        "packagesPath": "C:\\Users\\vinic\\.nuget\\packages\\",
+        "outputPath": "D:\\Desenvolvimento\\Projetos Pessoal\\.NET Core\\Fisioterapia\\Fisioterapia.App\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\lukas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\vinic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://cliente.concert.com.br/NugetServer/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\lukas\\OneDrive\\Área de Trabalho\\PUC MINAS\\4°-Periodo\\TIS - IV\\plf-es-2020-2-tiiv-8499100-fisioterapia\\Codigo\\Back\\Fisioterapia.Models\\Fisioterapia.Models.csproj": {
-                "projectPath": "C:\\Users\\lukas\\OneDrive\\Área de Trabalho\\PUC MINAS\\4°-Periodo\\TIS - IV\\plf-es-2020-2-tiiv-8499100-fisioterapia\\Codigo\\Back\\Fisioterapia.Models\\Fisioterapia.Models.csproj"
+              "D:\\Desenvolvimento\\Projetos Pessoal\\.NET Core\\Fisioterapia\\Fisioterapia.Models\\Fisioterapia.Models.csproj": {
+                "projectPath": "D:\\Desenvolvimento\\Projetos Pessoal\\.NET Core\\Fisioterapia\\Fisioterapia.Models\\Fisioterapia.Models.csproj"
               }
             }
           }
@@ -115,29 +115,29 @@
         }
       }
     },
-    "C:\\Users\\lukas\\OneDrive\\Área de Trabalho\\PUC MINAS\\4°-Periodo\\TIS - IV\\plf-es-2020-2-tiiv-8499100-fisioterapia\\Codigo\\Back\\Fisioterapia.Models\\Fisioterapia.Models.csproj": {
+    "D:\\Desenvolvimento\\Projetos Pessoal\\.NET Core\\Fisioterapia\\Fisioterapia.Models\\Fisioterapia.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lukas\\OneDrive\\Área de Trabalho\\PUC MINAS\\4°-Periodo\\TIS - IV\\plf-es-2020-2-tiiv-8499100-fisioterapia\\Codigo\\Back\\Fisioterapia.Models\\Fisioterapia.Models.csproj",
+        "projectUniqueName": "D:\\Desenvolvimento\\Projetos Pessoal\\.NET Core\\Fisioterapia\\Fisioterapia.Models\\Fisioterapia.Models.csproj",
         "projectName": "Fisioterapia.Models",
-        "projectPath": "C:\\Users\\lukas\\OneDrive\\Área de Trabalho\\PUC MINAS\\4°-Periodo\\TIS - IV\\plf-es-2020-2-tiiv-8499100-fisioterapia\\Codigo\\Back\\Fisioterapia.Models\\Fisioterapia.Models.csproj",
-        "packagesPath": "C:\\Users\\lukas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lukas\\OneDrive\\Área de Trabalho\\PUC MINAS\\4°-Periodo\\TIS - IV\\plf-es-2020-2-tiiv-8499100-fisioterapia\\Codigo\\Back\\Fisioterapia.Models\\obj\\",
+        "projectPath": "D:\\Desenvolvimento\\Projetos Pessoal\\.NET Core\\Fisioterapia\\Fisioterapia.Models\\Fisioterapia.Models.csproj",
+        "packagesPath": "C:\\Users\\vinic\\.nuget\\packages\\",
+        "outputPath": "D:\\Desenvolvimento\\Projetos Pessoal\\.NET Core\\Fisioterapia\\Fisioterapia.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\lukas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\vinic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://cliente.concert.com.br/NugetServer/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {

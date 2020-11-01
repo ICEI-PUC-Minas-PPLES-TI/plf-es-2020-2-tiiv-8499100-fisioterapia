@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 namespace Fisioterapia.App.Services {
     public interface IEmailService {
         void Send(string to, string subject, string html, string from = null);
+
     }
 
 }

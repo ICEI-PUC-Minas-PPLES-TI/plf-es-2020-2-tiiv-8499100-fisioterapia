@@ -8,6 +8,7 @@ namespace Fisioterapia.Models {
         }
         protected override void OnConfiguring(DbContextOptionsBuilder option) {
             option.UseSqlServer(_configuration.GetConnectionString("Procucao"));
+
         }
     }
 }

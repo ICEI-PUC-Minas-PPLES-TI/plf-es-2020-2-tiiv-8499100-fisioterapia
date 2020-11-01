@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace Fisioterapia.App {
     public class Startup {
+
         private readonly IWebHostEnvironment _env;
         private readonly IConfiguration _configuration;
         public Startup(IWebHostEnvironment env, IConfiguration configuration) {
@@ -23,10 +24,11 @@ namespace Fisioterapia.App {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
             if (_env.IsProduction()) { 
-                services.AddDbContext<DataContext, SqlServerContext>();
+               services.AddDbContext<DataContext, SqlServerContext>();
+                
             } else {
                 services.AddDbContext<DataContext, SqlServerContext>();
-               //services.AddDbContext<DataContext, SqlLiteDataContext>();
+              
             }
             services.AddCors();
             services.AddControllers();

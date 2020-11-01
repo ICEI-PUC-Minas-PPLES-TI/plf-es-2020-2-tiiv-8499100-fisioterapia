@@ -19,6 +19,177 @@ namespace Fisioterapia.Models.Migrations.SqlServerMigrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Fisioterapia.Models.Entidades.Atleta", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<float>("Altura")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Celular")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Idade")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LadoDominante")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Numero")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("OcoContusao")
+                        .HasColumnType("bit");
+
+                    b.Property<float>("Peso")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Posicao")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Profissao")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Atletas");
+                });
+
+            modelBuilder.Entity("Fisioterapia.Models.Entidades.Auxiliar", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CPF")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Expiracao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Instituicao")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Periodo")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdUsuario");
+
+                    b.ToTable("Auxiliars");
+                });
+
+            modelBuilder.Entity("Fisioterapia.Models.Entidades.AuxiliarUsuarios", b =>
+                {
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdAuxiliar")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdUsuario", "IdAuxiliar");
+
+                    b.HasIndex("IdAuxiliar");
+
+                    b.ToTable("AuxiliarUsuarios");
+                });
+
+            modelBuilder.Entity("Fisioterapia.Models.Entidades.ExameExercicios", b =>
+                {
+                    b.Property<int>("IdExame")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdExercios")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdExame", "IdExercios");
+
+                    b.HasIndex("IdExercios");
+
+                    b.ToTable("ExameExercicios");
+                });
+
+            modelBuilder.Entity("Fisioterapia.Models.Entidades.Exames", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("IdAtleta")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdAuxiliar")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdAtleta");
+
+                    b.HasIndex("IdAuxiliar");
+
+                    b.HasIndex("IdUsuario");
+
+                    b.ToTable("Exames");
+                });
+
+            modelBuilder.Entity("Fisioterapia.Models.Entidades.Exercicios", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdUsuario");
+
+                    b.ToTable("Exercicios");
+                });
+
+            modelBuilder.Entity("Fisioterapia.Models.Entidades.Logs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("IdUsuarioId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Index")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdUsuarioId");
+
+                    b.ToTable("Logs");
+                });
+
             modelBuilder.Entity("Fisioterapia.Models.Entidades.Usuarios", b =>
                 {
                     b.Property<int>("Id")
@@ -68,6 +239,82 @@ namespace Fisioterapia.Models.Migrations.SqlServerMigrations
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("Fisioterapia.Models.Entidades.Auxiliar", b =>
+                {
+                    b.HasOne("Fisioterapia.Models.Entidades.Usuarios", "Usuarios")
+                        .WithMany()
+                        .HasForeignKey("IdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Fisioterapia.Models.Entidades.AuxiliarUsuarios", b =>
+                {
+                    b.HasOne("Fisioterapia.Models.Entidades.Auxiliar", "Auxiliar")
+                        .WithMany("AuxiliarUsuarios")
+                        .HasForeignKey("IdAuxiliar")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Fisioterapia.Models.Entidades.Usuarios", "Usuarios")
+                        .WithMany("AuxiliarUsuarios")
+                        .HasForeignKey("IdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Fisioterapia.Models.Entidades.ExameExercicios", b =>
+                {
+                    b.HasOne("Fisioterapia.Models.Entidades.Exames", "Exames")
+                        .WithMany("ExameExercicios")
+                        .HasForeignKey("IdExame")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Fisioterapia.Models.Entidades.Exercicios", "Exercicios")
+                        .WithMany("ExameExercicios")
+                        .HasForeignKey("IdExercios")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Fisioterapia.Models.Entidades.Exames", b =>
+                {
+                    b.HasOne("Fisioterapia.Models.Entidades.Atleta", "Atleta")
+                        .WithMany()
+                        .HasForeignKey("IdAtleta")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Fisioterapia.Models.Entidades.Auxiliar", "Auxiliar")
+                        .WithMany()
+                        .HasForeignKey("IdAuxiliar")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Fisioterapia.Models.Entidades.Usuarios", "Usuarios")
+                        .WithMany()
+                        .HasForeignKey("IdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Fisioterapia.Models.Entidades.Exercicios", b =>
+                {
+                    b.HasOne("Fisioterapia.Models.Entidades.Usuarios", "Usuarios")
+                        .WithMany()
+                        .HasForeignKey("IdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Fisioterapia.Models.Entidades.Logs", b =>
+                {
+                    b.HasOne("Fisioterapia.Models.Entidades.Usuarios", "IdUsuario")
+                        .WithMany()
+                        .HasForeignKey("IdUsuarioId");
                 });
 
             modelBuilder.Entity("Fisioterapia.Models.Entidades.Usuarios", b =>

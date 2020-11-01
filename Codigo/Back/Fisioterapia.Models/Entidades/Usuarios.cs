@@ -6,7 +6,6 @@ namespace Fisioterapia.Models.Entidades {
         public int Id { get; set; }
         public string Titulo { get; set; }
         public string Nome { get; set; }
-
         public string Email { get; set; }
         public string SenhaHash { get; set; }
         public bool AceitoTermos { get; set; }
@@ -20,10 +19,10 @@ namespace Fisioterapia.Models.Entidades {
         public DateTime Criado { get; set; }
         public DateTime? Atualizado { get; set; }
         public List<RefreshToken> RecarregarToken { get; set; }
+        public ICollection<AuxiliarUsuarios> AuxiliarUsuarios { get; set; }
         public bool OwnsToken(string token) {
             return this.RecarregarToken?.Find(x => x.Token == token) != null;
-        } 
+        }
         public bool Active { get; set; }
-
     }
 }

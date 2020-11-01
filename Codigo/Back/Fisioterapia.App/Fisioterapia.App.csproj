@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>b532fc27-30d2-40bc-9a98-94f90551c5c1</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,11 +24,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Fisioterapia.Models\Fisioterapia.Models.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\Exame\" />
-    <Folder Include="Models\Atleta\" />
   </ItemGroup>
 
 

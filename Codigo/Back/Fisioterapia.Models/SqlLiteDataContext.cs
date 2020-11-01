@@ -7,7 +7,8 @@ namespace Fisioterapia.Models {
 
         }
         protected override void OnConfiguring(DbContextOptionsBuilder option) {
-            option.UseSqlite(_configuration.GetConnectionString("Procucao"));
+            option.UseSqlite(_configuration.GetConnectionString("desenvolvedor"));
+
         }
     }
 }

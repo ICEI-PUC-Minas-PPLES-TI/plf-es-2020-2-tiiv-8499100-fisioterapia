@@ -17,5 +17,6 @@ namespace Fisioterapia.Models.Entidades {
         public string RevokedById { get; set; }
         public string ReplacedByToken { get; set; }
         public bool IsActive => Revoked == null && !IsExpired;
+
     }
 }

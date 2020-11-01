@@ -9,6 +9,7 @@ namespace Fisioterapia.App.Models.Usuarios {
     public class CriarModel {
         [Required]
         public string Titulo { get; set; }
+
         [Required]
         public string Nome { get; set; }
         [Required]
