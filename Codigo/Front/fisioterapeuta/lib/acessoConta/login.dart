@@ -17,43 +17,6 @@ class _LoginState extends State<Login> {
   final _senhaController = TextEditingController();
   AuthMode _authMode = AuthMode.Login;
 
-/*@override
-  Future<void> initState() async {
-    // TODO: implement initState
-    super.initState();
-         print('entrou no auth');
-         /*
-    String url = 'http://localhost:4000/Usuario/login';
-    Map<String, String> headers = {"Content-type": "application/json"};
-    String json = '{"Email":"hancokmatader941@gmail.com", "Senha": "123456"}';
-    // 'https://identitytoolkit.googleapis.com/v1/accounts:$urlSegment?key=AIzaSyAWhrytYUuvVK9_JhzYZlkxyZHRlu1spzg';
-     post(url, headers: headers, body: json);
-     
-      */
-       String url = 'http://192.168.15.8:4000/Usuario/login';
-       final json ={
-          "Email":"hancokmatader941@gmail.com", 
-          "Senha": "123456",
-       };
-       http.Response response = await http.post(url,body:json);
-      var jsonResponse = jsonDecode(response.body);
-      print(jsonResponse);
-        
-      // make POST request
-         
-      // check the status code for the result
-        //int statusCode = response.statusCode;
-  // this API passes back the id of the new item added to the body
-        //String body = response.body;
-  // {
-  //   "title": "Hello",
-  //   "body": "body text",
-  //   "userId": 1,
-  //   "id": 101
-  // }
-  }
-  */
-
   final Map<String, String> _authData = {
     'nome': '',
     'email': '',
@@ -79,16 +42,18 @@ class _LoginState extends State<Login> {
     );
   }
 
-  void _showConfirmDialog(String msg) {
+  void _showConfirmDialog() {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
         title: Text('Cadastro realizado!'),
-        content: Text(msg),
+        content: Text('Será retornado para a tela de login'),
         actions: <Widget>[
           FlatButton(
             onPressed: () {
-              Navigator.of(context).popAndPushNamed(AppRoutes.LOGIN);
+              Auth auth = Provider.of(context, listen: false);
+              auth.logout();
+              Navigator.of(context).popAndPushNamed(AppRoutes.AUTHOUFICHAS);
             },
             child: Text('Fechar'),
           ),
@@ -112,18 +77,20 @@ class _LoginState extends State<Login> {
 
     try {
       if (_authMode == AuthMode.Login) {
+        print('para realizar login');
         await auth.login(
           _authData["email"],
           _authData["senha"],
         );
       } else {
+        print('para realizar cadastro');
         await auth.signup(
           _authData["nome"],
           _authData["email"],
           _authData["senha"],
           _authData["confirmacao"],
         );
-        _showConfirmDialog(auth.confirmacaoMensagem);
+        _showConfirmDialog();
       }
     } on ExcecaoAcesso catch (error) {
       _showErrorDialog(error.toString());

@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:FisioApp/providers/atleta.dart';
 import 'package:FisioApp/providers/auxiliar.dart';
-import 'package:FisioApp/providers/ficha.dart';
 import 'package:FisioApp/providers/teste.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
+import 'ficha.dart';
 
 class Fichas with ChangeNotifier {
   final String baseUrl = 'https://flutter-testereq.firebaseio.com/fichas';
@@ -41,11 +41,11 @@ class Fichas with ChangeNotifier {
       notifyListeners();
     }
     listaFichas = fichasCarregadas.reversed.toList();
-    notifyListeners();
     return Future.value();
   }
 
   Future<void> addFicha(Ficha novaFicha) async {
+    print('dentro do addFicha ${novaFicha.nomeAuxiliar}');
     final response = await http.post(
       '$baseUrl/$_userId.json?auth=$_token',
       body: json.encode({
@@ -66,15 +66,15 @@ class Fichas with ChangeNotifier {
     listaFichas.add(novaFicha);
     print(listaFichas.last.nomeAuxiliar);
     notifyListeners();
-    return Future.value();
   }
 
 //montarFichas
   void addFichas(
       Auxiliar auxiliar, List<Atleta> atletas, List<Teste> testesSelecionados) {
-    print('aqui');
-    print(auxiliar.nome);
+    print(testesSelecionados.last);
+    print(atletas.last);
     atletas.forEach((element) {
+      print('dentro do for each atleta');
       addFicha(new Ficha(
         idServerAuxiliar: auxiliar.idServer,
         nomeAuxiliar: auxiliar.nome,

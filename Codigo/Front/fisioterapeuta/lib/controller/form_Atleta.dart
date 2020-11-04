@@ -39,6 +39,7 @@ class _FormAtletaState extends State<FormAtleta> {
                     setState(
                       () {
                         print(atlCheckBox.nome);
+                        print(value);
                         atlCheckBox.selecionado = value;
                       },
                     );

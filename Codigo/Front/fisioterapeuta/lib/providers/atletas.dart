@@ -25,28 +25,36 @@ class Atletas with ChangeNotifier {
       new Atleta(
         idServer: json.decode(response.body)['name'],
         nome: nomeInserido,
-        cpf: cpfInserido,
+        celular: cpfInserido,
       ),
     );
     notifyListeners();
   }
 
   Future<void> loadAtletas() async {
-    final response = await http.get('$baseUrl/$_userId.json?auth=$_token');
-    Map<String, dynamic> data = json.decode(response.body);
+    //final response = await http.get('$baseUrl/$_userId.json?auth=$_token');
+    //Map<String, dynamic> data = json.decode(response.body);
     listaAtl.clear();
+    final response = await http
+        .get('https://fisioterapiaapp.azurewebsites.net/Atleta/getallatleta');
+    List<dynamic> data = json.decode(response.body);
+    print('lista de atletas : ');
+    // print(data);
 
     if (data != null) {
-      data.forEach((dataId, dataBody) {
+      // corrigir depois
+      data.forEach((dataBody) {
         listaAtl.add(Atleta(
-          idServer: dataId,
+          idServer: dataBody['id'].toString(),
           nome: dataBody['nome'],
-          cpf: dataBody['cpf'],
+          celular: dataBody['celular'],
         ));
       });
-      notifyListeners();
-    }
 
+      notifyListeners();
+    } else {
+      print('lista vazia');
+    }
     return Future.value();
   }
 
@@ -56,6 +64,7 @@ class Atletas with ChangeNotifier {
     listaAtl.forEach(
       (element) {
         if (element.selecionado) {
+          print('atleta selecionado : ${element.nome}');
           atletasSelecionados.add(element);
           element.selecionado = !element.selecionado;
         }

@@ -7,10 +7,20 @@ class Auth with ChangeNotifier {
   String _token;
   String _userId;
   String confirmacaoMensagem;
- // DateTime _expiryDate;
+  String _nomeUsuario;
+  String _codVinculo;
+  // DateTime _expiryDate;
+
+  String get nomeUsuario {
+    return isAuth ? _nomeUsuario : null;
+  }
 
   bool get isAuth {
     return token != null;
+  }
+
+  String get codVinculo {
+    return isAuth ? _codVinculo : null;
   }
 
   String get userId {
@@ -18,31 +28,65 @@ class Auth with ChangeNotifier {
   }
 
   String get token {
-    if (_token != null /*&&
+    if (_token !=
+            null /*&&
         _expiryDate != null &&
-        _expiryDate.isAfter(DateTime.now())*/) {
+        _expiryDate.isAfter(DateTime.now())*/
+        ) {
       return _token;
     } else {
       return null;
     }
   }
-  Future<void> _authenticate(
-      String email, String senha, String urlSegment) async {
-        print('entrou no auth');
-    final url ='https://fisioterapiaapp.azurewebsites.net/Usuario/login';
+
+/*
+  Future<void> _authenticateCadastro(String nome, String email, String senha,
+      String confirmacao, String urlSegment) async {
+    print('entrou no auth');
+    final url = 'https://fisioterapiaapp.azurewebsites.net/Usuario/register';
+    //final url ='https://flutter-testereq.firebaseio.com/'
     var response = await http.post(
       url,
-        headers: {
-          "Accept": "application/json",
-          "content-type": "application/json"
+      headers: {
+        "Accept": "application/json",
+        "content-type": "application/json"
+      },
+      body: json.encode(
+        {
+          "Titulo": "Mr",
+          "Nome": nome,
+          "Email": email,
+          "Senha": senha,
+          "ConfirmaSenha": confirmacao,
+          "AceitoTermos": true,
         },
+      ),
+    );
+
+    final responseBody = json.decode(response.body);
+    print(' fora  $responseBody');
+    confirmacaoMensagem = responseBody['message'];
+  }
+
+  Future<void> _authenticate(
+      String email, String senha, String urlSegment) async {
+    print('entrou no auth');
+    final url = 'https://fisioterapiaapp.azurewebsites.net/Usuario/login';
+    var response = await http.post(
+      url,
+      headers: {
+        "Accept": "application/json",
+        "content-type": "application/json"
+      },
       body: json.encode({
-           "Email": email,
-           "Senha": senha,
+        "Email": email,
+        "Senha": senha,
       }),
-      );
-    if(response == null) print('nao chamour');
-    else print('chamou');
+    );
+    if (response == null)
+      print('nao chamour');
+    else
+      print('chamou');
     final responseBody = json.decode(response.body);
     if (responseBody['message'] != null) {
       print(' dentro ${responseBody['message']}');
@@ -53,7 +97,141 @@ class Auth with ChangeNotifier {
       print('id fora : ${responseBody['id']}');
       _userId = responseBody['id'].toString();
       _token = responseBody['jwtToken'];
-     /* _expiryDate = DateTime.now().add(
+      /* _expiryDate = DateTime.now().add(
+        Duration(
+          seconds: int.parse(
+              responseBody['expiresIn']), // a soma da a data de expiracao
+        ),
+      );*/
+      print('deu1');
+      notifyListeners();
+    }
+    print('deu2');
+    return Future.value();
+  }
+*/
+/*
+  Future<void> _authenticateFirebase(
+      String email, String senha, String urlSegment) async {
+    print('entrou no auth');
+    final url =
+        'https://identitytoolkit.googleapis.com/v1/accounts:$urlSegment?key=AIzaSyAWhrytYUuvVK9_JhzYZlkxyZHRlu1spzg';
+    final response = await http.post(
+      url,
+      body: json.encode({
+        'email': email,
+        'password': senha,
+        //'type': 'fisioterapeuta',
+        'returnSecureToken': true,
+      }),
+    );
+    final responseBody = json.decode(response.body);
+    if (responseBody['error'] != null) {
+      throw ExcecaoAcesso(responseBody['error']['message']);
+    } else {
+      print(responseBody); // imprime oque esta no response
+      _token = responseBody['idToken'];
+      _userId = responseBody['localId'];
+      //_email = responseBody['email'];
+      /*_expiryDate = DateTime.now().add(
+        Duration(
+          seconds: int.parse(
+              responseBody['expiresIn']), // a soma da a data de expiracao
+        ),
+      );*/
+
+      notifyListeners();
+    }
+
+    return Future.value();
+  }
+*/
+  Future<void> signup(
+      String nome, String email, String senha, String confirmacao) async {
+    //print(' nome : $nome'); print('email : $email');print(' senha : $senha');print(' confirmacao $confirmacao');
+    // return _authenticateCadastro(nome,email, senha,confirmacao, 'register');
+    //return _authenticateFirebase(email, senha, 'signUp');
+    print('entrou');
+    print('nome $nome email $email senha $senha confirmacao $confirmacao ');
+    final url = 'https://fisioterapiaapp.azurewebsites.net/Usuario/register';
+    //final url ='https://flutter-testereq.firebaseio.com/'
+    var response = await http.post(
+      url,
+      headers: {
+        "Accept": "application/json",
+        "content-type": "application/json"
+      },
+      body: json.encode(
+        {
+          "Titulo": "Mr",
+          "Nome": nome,
+          "Email": email,
+          "Senha": senha,
+          "ConfirmaSenha": confirmacao,
+          "AceitoTermos": true,
+        },
+      ),
+    );
+
+    final responseBody = json.decode(response.body);
+    if (responseBody['error'] != null) {
+      throw ExcecaoAcesso(responseBody['error']['message']);
+    } else {
+      print('body $responseBody'); // imprime oque esta no response
+      //_token = responseBody['idToken'];
+      //_userId = responseBody['localId'];
+      /*_expiryDate = DateTime.now().add(
+        Duration(
+          seconds: int.parse(
+              responseBody['expiresIn']), // a soma da a data de expiracao
+        ),
+      );*/
+      print('deu1');
+      notifyListeners();
+    }
+    print('deu2');
+    print(' fora  $responseBody');
+    confirmacaoMensagem = responseBody['message'];
+
+    //return Future.value();
+  }
+
+  Future<void> login(String email, String senha) async {
+    //return _authenticate(email, senha, 'login');
+    final url = 'https://fisioterapiaapp.azurewebsites.net/Usuario/login';
+
+    var response = await http.post(
+      url,
+      headers: {
+        "Accept": "application/json",
+        "content-type": "application/json"
+      },
+      body: json.encode({
+        "Email": email,
+        "Senha": senha,
+      }),
+    );
+    if (response == null)
+      print('nao chamour');
+    else
+      print('chamou');
+    final responseBody = json.decode(response.body);
+    if (responseBody['message'] != null) {
+      print(' dentro ${responseBody['message']}');
+      throw ExcecaoAcesso(responseBody['error']['message']);
+    } else {
+      print(' fora  $responseBody'); // imprime oque esta no response
+      print('token fora : ${responseBody['jwtToken']}');
+      print('id fora : ${responseBody['id']}');
+      print('corpo : $responseBody');
+      _nomeUsuario = responseBody['nome'];
+      _userId = responseBody['id'].toString();
+      _token = responseBody['jwtToken'];
+      _codVinculo = responseBody['codvinculo'];
+      print('valor do token : $_token');
+      //print(' dentro ${responseBody['codVinculo']}');
+      //print('valor do codigo de vinculo : ${responseBody['']}');
+      /* _expiryDate = DateTime.now().add(
         Duration(
           seconds: int.parse(
               responseBody['expiresIn']), // a soma da a data de expiracao
@@ -66,38 +244,10 @@ class Auth with ChangeNotifier {
     return Future.value();
   }
 
-  Future<void> _authenticateCadastro( String nome,
-      String email, String senha, String confirmacao, String urlSegment) async {
-        print('entrou no auth');
-    final url ='https://fisioterapiaapp.azurewebsites.net/Usuario/register';
-    var response = await http.post(
-      url,
-        headers: {
-          "Accept": "application/json",
-          "content-type": "application/json"
-        },
-      body: json.encode({
-          "Titulo" :"Mr",
-          "Nome" : nome,
-          "Email": email,
-          "Senha": senha,
-          "ConfirmaSenha" : confirmacao,
-          "AceitoTermos":true,
-      },),
-      );
-
-      final responseBody = json.decode(response.body);
-       print(' fora  $responseBody');
-       confirmacaoMensagem = responseBody['message'];
-      }
-
-
-  Future<void> signup(String nome,String email, String senha, String confirmacao) async {
-   //print(' nome : $nome'); print('email : $email');print(' senha : $senha');print(' confirmacao $confirmacao');
-    return _authenticateCadastro(nome,email, senha,confirmacao, 'register');
-  }
-  Future<void> login(String email, String senha) async {
-
-    return _authenticate(email, senha, 'login');
+  logout() {
+    _token = null;
+    _userId = null;
+    print('token :$_token');
+    print('id usuario :$_userId');
   }
 }

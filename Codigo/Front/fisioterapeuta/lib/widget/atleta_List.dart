@@ -48,14 +48,14 @@ class AtletaList extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(
+                          /*Text(
                             ' ID : ${atl.idServer}',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
                               color: Colors.teal[700],
                             ),
-                          ),
+                          ),*/
                           Text(
                             ' Nome : ${atl.nome}',
                             style: TextStyle(
@@ -65,7 +65,7 @@ class AtletaList extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            ' CPF : ${atl.cpf}',
+                            ' Celular : ${atl.celular}',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
