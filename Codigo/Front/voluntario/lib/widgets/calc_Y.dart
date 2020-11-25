@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_fisio/provider/auxFichas.dart';
-import 'package:projeto_fisio/utils/app_routes.dart';
 import 'package:provider/provider.dart';
 
 class CalcY extends StatefulWidget {
@@ -271,25 +270,6 @@ class _CalcYState extends State<CalcY> {
                   ),
                 ),
                 //botão de voltar
-                /*SizedBox(width: 20),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: Container(
-                    height: 40.0,
-                    child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      color: Colors.teal[700],
-                      child: Text(
-                        "Voltar",
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-                      onPressed: () => Navigator.of(context)
-                          .popAndPushNamed(AppRoutes.AUX_HOME_SCREEN),
-                    ),
-                  ),
-                ),*/
               ],
             ),
           ],

@@ -75,17 +75,6 @@ class _FichasViewState extends State<FichasView> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
-                          /* FlatButton(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Text(
-                              'Atualizar Fichas',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            color: Colors.teal[700],
-                            onPressed: () {},
-                          ),*/
                           FlatButton(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),

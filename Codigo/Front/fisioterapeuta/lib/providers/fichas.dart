@@ -36,7 +36,7 @@ class Fichas with ChangeNotifier {
             testes: (exame['idsExamesExercicios'] as List<dynamic>)
                 .map((testeItem) {
               nomeDoTeste = testeItem['nome'].toString();
-              //if (testeItem['nome'].toString().contains('Calc RQ')) {
+
               if (nomeDoTeste.contains('Calc RQ') ||
                   nomeDoTeste.contains('Hop Teste') ||
                   nomeDoTeste.contains('Closed Kinect') ||
@@ -104,7 +104,6 @@ class Fichas with ChangeNotifier {
       }),
     );
     var responseBody = json.decode(response.body);
-    print('deu merda ? $responseBody');
     listaFichas.add(novaFicha);
     notifyListeners();
   }

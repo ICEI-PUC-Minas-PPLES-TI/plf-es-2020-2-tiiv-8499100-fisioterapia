@@ -36,26 +36,6 @@ class Auxiliares with ChangeNotifier {
     return Future.value();
   }
 
-/*
-  Future<void> addAuxiliar(String nomeInserido, String emailInserido) async {
-    final response = await http.post(
-      '$baseUrl/$_userId.json?auth=$_token',
-      body: json.encode({
-        'nome': nomeInserido,
-        'email': emailInserido,
-      }),
-    );
-
-    listaAux.add(
-      new Auxiliar(
-        idServer: json.decode(response.body)['name'],
-        nome: nomeInserido,
-        email: emailInserido,
-      ),
-    );
-    notifyListeners();
-  }
-*/
   void atualizarSelecionado() {
     selecionado =
         listaAux.singleWhere((element) => element.idServer == chaveSelecionada);

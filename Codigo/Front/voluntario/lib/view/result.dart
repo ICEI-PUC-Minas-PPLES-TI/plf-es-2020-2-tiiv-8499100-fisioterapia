@@ -25,11 +25,7 @@ class _ResultState extends State<Result> {
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.all(10.0),
-          child:
-              /* _isLoading
-              ? CircularProgressIndicator()
-              : */
-              Column(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[

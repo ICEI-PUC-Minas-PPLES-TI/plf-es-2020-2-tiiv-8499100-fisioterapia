@@ -153,27 +153,7 @@ class _CalcRQState extends State<CalcRQ> {
                             },
                           ),
                   ),
-                ), /*
-                SizedBox(width: 20),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: Container(
-                    height: 40.0,
-                    child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      color: Colors.teal[700],
-                      child: Text(
-                        "  Voltar  ",
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-                      onPressed: () => Navigator.of(context)
-                          .pop(), /*
-                          .popAndPushNamed(AppRoutes.AUX_HOME_SCREEN),*/
-                    ),
-                  ),
-                ),*/
+                ), 
               ],
             ),
           ],

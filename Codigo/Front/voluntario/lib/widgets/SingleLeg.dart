@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_fisio/provider/auxFichas.dart';
-import 'package:projeto_fisio/utils/app_routes.dart';
 import 'package:provider/provider.dart';
 
 class SingleLeg extends StatefulWidget {
@@ -14,9 +13,9 @@ class SingleLeg extends StatefulWidget {
 
 class _SingleLeg extends State<SingleLeg> {
   String infoText = "Força e resistência muscular";
-  //String infoText1 = "Quantidade de Repetiçoes realizados ME";
+
   TextEditingController membroDireito = TextEditingController();
-  //TextEditingController membroEsquerdo = TextEditingController();
+
   var verificarTeste = true;
   TestePendente teste;
 
@@ -36,7 +35,6 @@ class _SingleLeg extends State<SingleLeg> {
     FichasAux fichasAux = Provider.of<FichasAux>(context, listen: false);
     setState(() {
       infoText = "Força e resistência muscular ${membroDireito.text}";
-      //  infoText1 = "Quantidade de toques realziados ME ${membroEsquerdo.text}";
 
       teste = fichasAux.inserirRespostaTesteDoisValores(
         widget.idExame,
@@ -53,9 +51,8 @@ class _SingleLeg extends State<SingleLeg> {
   void _resetField() {
     setState(() {
       membroDireito.text = "";
-      //membroEsquerdo.text = "";
+
       infoText = "Força e resistência muscular";
-      //infoText1 = "Quantidade de Repetições realizados ME";
     });
   }
 
@@ -89,15 +86,6 @@ class _SingleLeg extends State<SingleLeg> {
                 textAlign: TextAlign.center,
               ),
             ),
-            /*    buildTextfield("Membro Esquerdo:", membroEsquerdo),
-            Padding(
-              padding: const EdgeInsets.only(top: 0.5),
-              child: Text(
-                infoText1,
-                style: TextStyle(color: Colors.black, fontSize: 20.0),
-                textAlign: TextAlign.center,
-              ),
-            ),*/
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -143,26 +131,7 @@ class _SingleLeg extends State<SingleLeg> {
                             },
                           ),
                   ),
-                ), /*
-                SizedBox(width: 20),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: Container(
-                    height: 40.0,
-                    child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      color: Colors.teal[700],
-                      child: Text(
-                        "  Voltar  ",
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-                      onPressed: () => Navigator.of(context)
-                          .popAndPushNamed(AppRoutes.AUX_HOME_SCREEN),
-                    ),
-                  ),
-                ),*/
+                ),
               ],
             ),
           ],

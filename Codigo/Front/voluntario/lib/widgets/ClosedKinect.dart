@@ -14,9 +14,9 @@ class ClosedKinect extends StatefulWidget {
 
 class _ClosedKinect extends State<ClosedKinect> {
   String infoText = "Quantidade de toques ";
-  //String infoText1 = "Quantidade de toques ";
+
   TextEditingController membroDireito = TextEditingController();
-  //TextEditingController membroEsquerdo = TextEditingController();
+
   var verificarTeste = true;
   TestePendente teste;
 
@@ -36,7 +36,6 @@ class _ClosedKinect extends State<ClosedKinect> {
     FichasAux fichasAux = Provider.of<FichasAux>(context, listen: false);
     setState(() {
       infoText = "Quantidade de toques  ${membroDireito.text}";
-      //  infoText1 = "Quantidade de toques  ${membroEsquerdo.text}";
 
       teste = fichasAux.inserirRespostaTesteDoisValores(
         widget.idExame,
@@ -89,15 +88,6 @@ class _ClosedKinect extends State<ClosedKinect> {
                 textAlign: TextAlign.center,
               ),
             ),
-            /*    buildTextfield("Membro Esquerdo:", membroEsquerdo),
-            Padding(
-              padding: const EdgeInsets.only(top: 0.5),
-              child: Text(
-                infoText1,
-                style: TextStyle(color: Colors.black, fontSize: 20.0),
-                textAlign: TextAlign.center,
-              ),
-            ),*/
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -144,27 +134,6 @@ class _ClosedKinect extends State<ClosedKinect> {
                           ),
                   ),
                 ),
-
-                /*
-                SizedBox(width: 20),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: Container(
-                    height: 40.0,
-                    child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      color: Colors.teal[700],
-                      child: Text(
-                        "  Voltar  ",
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-                      onPressed: () => Navigator.of(context)
-                          .popAndPushNamed(AppRoutes.AUX_HOME_SCREEN),
-                    ),
-                  ),
-                ),*/
               ],
             ),
           ],

@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool _isLoading = true;
   bool _isSelect = false;
   TextEditingController codigo = TextEditingController();
-  //List<FichaAux> lista = [];
+
   @override
   void initState() {
     // TODO: implement initState

@@ -13,7 +13,7 @@ class Atletas with ChangeNotifier {
   Future<void> solCadastroAtleta(String nomeInserido, String idAuxiliar) async {
     int idus = int.parse(_userId);
     int idaux = int.parse(idAuxiliar);
-//'$baseUrl/$_userId.json?auth=$_token',
+
     final response = await http.post(
       'http://fisioterapiaapp1.azurewebsites.net/Pedidos/CriarPedido',
       headers: {

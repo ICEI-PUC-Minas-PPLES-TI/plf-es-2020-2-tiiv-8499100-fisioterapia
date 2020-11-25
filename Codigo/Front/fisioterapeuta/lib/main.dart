@@ -63,12 +63,6 @@ class FisioApp extends StatelessWidget {
             previousAtletas.listaAtl,
           ),
         ),
-
-        /*
-        ChangeNotifierProvider(create: (_) => new Fichas()),
-        ChangeNotifierProvider(create: (_) => new Auxiliares()),
-        ChangeNotifierProvider(create: (_) => new Atletas()),
-        */
         ChangeNotifierProvider(
           create: (_) => new Testes(),
         ),
